@@ -2,14 +2,20 @@
 
 Welcome to the Habitat Sample Node App!
 
-![habitat-sample-node-app](https://user-images.githubusercontent.com/446285/31078915-96033340-a749-11e7-906c-7861521894fc.png)
+### Follow the demo instructions
+
+For the full experience, check out the [Habitat Demo instructions](https://www.habitat.sh/demo/) on the habitat.sh website. This will walk you through getting setup on the Habitat Builder web app and publishing this sample app to Docker Hub.
+
+Alternatively, you can use the instructions below if you simply want to build and run the app locally.
+
+![habitat-sample-node-app](https://user-images.githubusercontent.com/274700/39158589-d1170792-4715-11e8-8e2a-1a2696944500.png)
 
 
 ## Instructions
 
 To practice packaging/running this app with Habitat
 
-### Workstation Prereqs:
+### Workstation Prerequisites
 * Install and set up Habitat [(Instructions here)](https://www.habitat.sh/tutorials/download/)
 * Install Docker [(Instructions here)](https://www.docker.com/community-edition)
 * Clone this repository
@@ -21,8 +27,18 @@ $  git clone https://github.com/habitat-sh/sample-node-app.git
 $ cd sample-node-app
 ```
 
-### Building the Package:
-You'll see a directory called habitat.  Open the habitat/plan.sh file:
+### Setup for First-time Users
+Before you can build the app, you'll need to create an origin and accompanying keys.
+The quickest way to do this is by running `hab setup` and following the prompts.
+
+```bash
+$ hab setup
+```
+
+**Note** - the origin name you enter during setup will need to be added to the plan.sh file mentioned in the next section.
+
+### Building the Package
+From the `/habitat` directory in this repo, open the habitat/plan.sh file:
 
 Your habitat/plan.sh should look like this:
 ```sh
@@ -30,8 +46,11 @@ pkg_name=sample-node-app
 pkg_origin=your_origin
 pkg_scaffolding="core/scaffolding-node"
 ```
+First, change the value of `your_origin` to the origin name your created in the previous section.
 
-Let's add in a version number
+If you're following the [demo instructions](https://www.habitat.sh/demo/), then use the origin name you created in the Builder web app.
+
+Next, let's add in a version number
 ```sh
 pkg_name=sample-node-app
 pkg_origin=your_origin
